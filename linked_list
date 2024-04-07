@@ -1,0 +1,49 @@
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import "fmt"
+
+type node struct {
+	next  *node
+	value rune
+}
+
+func main() {
+	vs := "Vasia"
+
+	list := tolist(vs)
+	printlist(list)
+}
+
+func printlist(head *node) {
+	for head != nil {
+		fmt.Println(string(head.value))
+		head = head.next
+	}
+	
+	
+/*	i := 30230023023
+
+	var ptr *int
+	ptr = &i
+	
+	ptr = 32323
+*/
+}
+
+func tolist(s string) *node {
+	var head, prev *node
+	for i, ch := range s {
+		nn := &node{value: ch}
+
+		if i == 0 {
+			head = nn
+		} else {
+			prev.next = nn
+		}
+		prev = nn
+	}
+
+	return head
+}
