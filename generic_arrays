@@ -1,0 +1,37 @@
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	test := map[string]string{
+		"key1": "val1",
+		"key2": "val2",
+	}
+
+	for i := range 10000 {
+		test[fmt.Sprint(i)] = fmt.Sprint(i)
+	}
+	fmt.Println(keys(test))
+	fmt.Println(values(test))
+}
+
+func keys[K comparable, V any](m map[K]V) []K {
+	s := make([]K, 0, len(m))
+	for key := range m {
+		s = append(s, key)
+
+	}
+	return s
+}
+
+func values[K comparable, V any](m map[K]V) []V {
+	s := make([]V, 0, len(m))
+	for _, val := range m {
+		s = append(s, val)
+	}
+	return s
+}
